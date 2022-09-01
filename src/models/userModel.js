@@ -13,7 +13,7 @@ const userModel=new mongoose.Schema({
         type:String,
         required:true
     },
-    image:{ type:String,}
+    image:{ type:String}
 });
 module.exports=mongoose.model('User',userModel);//Users is the name of the collection in mongodb and userModel is the schema of the collection.
 //
