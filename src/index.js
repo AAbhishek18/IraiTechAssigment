@@ -18,4 +18,4 @@ mongoose.connect('mongodb+srv://AAbhishek2022:1ESrG6kzyaqzUE3p@cluster0.am17a.mo
 app.use("/",route)
 
 app.listen(process.env.PORT || 3000,function(){
-    console.log('server is running on port 3000' + (process.env.PORT || 3000))});
+    console.log('server is running on port ' + (process.env.PORT || 3000))});

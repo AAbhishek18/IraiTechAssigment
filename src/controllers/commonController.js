@@ -1,8 +1,8 @@
 const   userModel=require('../models/userModel');
 const   userProfileModel=require('../models/userProfileModel');
-const   bcrypt=require('bcryptjs');
+//const   bcrypt=require('bcryptjs');
 const   jwt=require('jsonwebtoken');
-const   config=require('../config/config');
+//const   config=require('../config/config');
 
 const aws = require('aws-sdk');
 
@@ -38,6 +38,7 @@ aws.config.update({
   try {
     let user= req.body;
     let files=req.files;
+    console.log(files);
     if (files && files.leength > 0) {
      var uploadFileURL = await uploadFile(files[0]);
      data.image = uploadFileURL;
@@ -45,7 +46,7 @@ aws.config.update({
      return res.status(400).send({ msg: "No image found" });
    }
  
- //create a new user
+ //create a new user in db
  Body.image = uploadFileURL;
  let newUser= await userModel.create(user);
  res.status(201).send({msg:'User created successfully',data:newUser});
@@ -55,6 +56,12 @@ aws.config.update({
     
   }
   }
+//update profile of a user
+// const updateUserProfile= async function (req,res){
+//   try{
+//     req.
+//   }
+
     //get all users
     const getAllUsers= async function (req,res){
         try {
